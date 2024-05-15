@@ -10,7 +10,7 @@ export default async function BlogsPage() {
             <h1 className="mt-0">Latest Posts</h1>
             <hr className="my-4" />
             <div className="grid grid-flow-row gap-2">
-                {data.data.map((post) => (
+                {data?.data && data?.data.map((post) => (
                     <PostPreview post={post} key={post.id} />
                 ))}
             </div>
