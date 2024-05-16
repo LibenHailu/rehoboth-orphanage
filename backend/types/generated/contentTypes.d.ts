@@ -806,6 +806,9 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     content: Attribute.Blocks;
     tags: Attribute.Relation<'api::blog.blog', 'manyToMany', 'api::tag.tag'>;
     slug: Attribute.UID<'api::blog.blog', 'title'> & Attribute.Required;
+    isFeatured: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
