@@ -21,6 +21,7 @@ export default async function Home() {
     const strapiData = await getHomePageData();
 
     const { blocks } = strapiData;
+    console.log(blocks)
     if (!blocks) {
         notFound()
     }

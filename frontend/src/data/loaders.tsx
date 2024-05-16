@@ -28,10 +28,7 @@ export async function getHomePageData() {
                     image: {
                         fields: ["url", "alternativeText"],
                     },
-                    link: {
-                        populate: true,
-                    },
-                    feature: {
+                    benefit: {
                         populate: true,
                     },
                 },
