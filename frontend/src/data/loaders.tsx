@@ -82,10 +82,10 @@ export async function getBlogsDataByTag(tag: string) {
     const url = new URL("/api/blogs", baseUrl);
     const query = qs.stringify({
         filters:
-            { tag: { $eq: tag } },
+            { tags: { name: { $eq: tag } } },
+
     });
 
     url.search = query;
-
     return fetchData(url.href);
 }
