@@ -23,8 +23,8 @@ export const navigationLinks: NavItem[] = [
         href: "/blogs",
     },
     {
-        title: "Events",
-        href: "/events",
+        title: "Adopt Child",
+        href: "/adopt",
     },
     {
         title: "About Us",

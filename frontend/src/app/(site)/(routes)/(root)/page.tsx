@@ -1,6 +1,8 @@
 import { getHomePageData } from "@/data/loaders";
 
 import { HeroSection } from "./_components/hero-section";
+import { Blocks } from "lucide-react";
+import { notFound } from "next/navigation";
 // import { FeatureSection } from "@/components/custom/FeaturesSection";
 
 function blockRenderer(block: any) {
@@ -19,11 +21,13 @@ export default async function Home() {
     const strapiData = await getHomePageData();
 
     const { blocks } = strapiData;
-    if (!blocks) return <div>No blocks found</div>;
+    if (!blocks) {
+        notFound()
+    }
 
     return (
-        <main>
+        <div>
             {blocks.map((block: any) => blockRenderer(block))}
-        </main>
+        </div>
     );
 }

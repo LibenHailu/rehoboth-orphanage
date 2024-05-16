@@ -7,7 +7,8 @@ const baseUrl = getStrapiURL();
 async function fetchData(url: string) {
 
     try {
-        const response = await fetch(url);
+        // TODO: remove no-store cache for better performance
+        const response = await fetch(url, { cache: "no-store" });
         const data = await response.json();
         return flattenAttributes(data);
     } catch (error) {
@@ -65,6 +66,23 @@ export async function getBlogPageData(slug: string) {
     const query = qs.stringify({
         filters:
             { slug: { $eq: slug } },
+        populate: {
+            tags: {
+                fields: ["name"],
+            },
+        },
+    });
+
+    url.search = query;
+
+    return fetchData(url.href);
+}
+
+export async function getBlogsDataByTag(tag: string) {
+    const url = new URL("/api/blogs", baseUrl);
+    const query = qs.stringify({
+        filters:
+            { tag: { $eq: tag } },
     });
 
     url.search = query;

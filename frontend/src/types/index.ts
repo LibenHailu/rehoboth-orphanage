@@ -1,4 +1,5 @@
 import { LinkProps } from "next/link";
+import { BlocksRenderer, type BlocksContent } from '@strapi/blocks-react-renderer';
 
 export interface MobileLinkProps extends LinkProps {
     onOpenChange?: (open: boolean) => void;
@@ -49,13 +50,7 @@ export type Post = {
     slug: string;
     title: string;
     description: string;
-    content: {
-        type: string;
-        children: {
-            text: string;
-            type: string;
-        }[];
-    }[];
+    content: BlocksContent;
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
@@ -82,6 +77,11 @@ export type Meta = {
 };
 
 export type BlogsApiResponse = {
+    data: Post[];
+    meta: Meta;
+};
+
+export type BlogApiResponse = {
     data: Post[];
     meta: Meta;
 };

@@ -8,6 +8,7 @@ import { MobileNav } from "@/components/mobile-nav";
 import { Navbar } from "@/components/navbar";
 import { defaultUser } from "@/lib/metadata";
 import { cn, debounce } from "@/lib/utils";
+import { Button } from "./ui/button";
 
 const SCROLL_OFFSET = 200;
 
@@ -67,8 +68,8 @@ export function Navigation() {
                                 <MobileNav />
                             </nav>
                         </div>
-                        <div className="order-2 flex w-full items-center gap-2 sm:order-3 sm:w-fit">
-                            Liben
+                        <div className="order-2 flex w-full items-center gap-2 sm:ml-10 sm:order-3 sm:w-fit">
+                            <Button size="sm">Donate</Button>
                         </div>
                     </div>
                 </div>

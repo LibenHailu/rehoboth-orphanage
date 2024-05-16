@@ -25,11 +25,6 @@ const PostPreview = ({ post }: PostPreviewProps) => {
                         <CalendarDays size={16} />
                         <time dateTime={post.publishedAt}>{format(parseISO(post.publishedAt), "LLLL d, yyyy")}</time>
                     </div>
-                    <span className="opacity-50">|</span>
-                    <div className="flex items-center gap-1">
-                        <Timer size={16} />
-                        {/* <span>{`${post.readTimeMinutes} mins read`}</span> */}
-                    </div>
                 </div>
                 {post?.tags && (
                     <ul className="my-4 flex list-none flex-wrap gap-2 p-0">
