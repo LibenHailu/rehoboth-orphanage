@@ -3,7 +3,7 @@ import { AboutNavItem, NavItem } from "@/types";
 const about: AboutNavItem[] = [
     {
         title: "About",
-        href: "/about-us",
+        href: "/about",
         description: "Description about the page.",
     },
     {

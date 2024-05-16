@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_component_benefit_items",
+  "info": {
+    "displayName": "BenefitItem"
+  },
+  "options": {},
+  "attributes": {
+    "logoId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

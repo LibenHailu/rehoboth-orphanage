@@ -89,3 +89,10 @@ export async function getBlogsDataByTag(tag: string) {
     url.search = query;
     return fetchData(url.href);
 }
+
+export async function getAboutPageData() {
+
+    const url = new URL("/api/about-page", baseUrl);
+
+    return await fetchData(url.href);
+}

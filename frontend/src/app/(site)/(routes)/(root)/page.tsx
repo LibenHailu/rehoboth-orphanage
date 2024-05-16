@@ -1,16 +1,16 @@
 import { getHomePageData } from "@/data/loaders";
 
 import { HeroSection } from "./_components/hero-section";
+import { BenefitSection } from "./_components/benefit-secrion";
 import { Blocks } from "lucide-react";
 import { notFound } from "next/navigation";
-// import { FeatureSection } from "@/components/custom/FeaturesSection";
 
 function blockRenderer(block: any) {
     switch (block.__component) {
         case "layout.hero-section":
             return <HeroSection key={block.id} data={block} />;
-        // case "layout.features-section":
-        //     return <FeatureSection key={block.id} data={block} />;
+        case "layout.benefits-section":
+            return <BenefitSection key={block.id} data={block} />;
         default:
             return null;
     }
