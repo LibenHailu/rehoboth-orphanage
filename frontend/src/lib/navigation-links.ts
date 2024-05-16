@@ -4,12 +4,12 @@ const about: AboutNavItem[] = [
     {
         title: "About",
         href: "/about",
-        description: "Description about the page.",
+        description: "Learn about our mission, values, and the impact we’re making in the lives of orphaned children.",
     },
     {
         title: "Gallery",
         href: "/gallary",
-        description: "Description about the page.",
+        description: "Explore photos of our activities, events, and the happy faces of the children we support.",
     },
 ];
 

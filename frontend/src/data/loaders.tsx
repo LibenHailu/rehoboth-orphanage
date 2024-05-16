@@ -61,13 +61,16 @@ export async function getBlogsPageData() {
 export async function getBlogPageData(slug: string) {
     const url = new URL("/api/blogs", baseUrl);
     const query = qs.stringify({
-        filters:
-            { slug: { $eq: slug } },
         populate: {
+            coverImage: {
+                fields: ["url", "alternativeText"],
+            },
             tags: {
                 fields: ["name"],
             },
         },
+        filters:
+            { slug: { $eq: slug } },
     });
 
     url.search = query;
@@ -93,3 +96,23 @@ export async function getAboutPageData() {
 
     return await fetchData(url.href);
 }
+
+export async function getGallaryPageData() {
+
+    const url = new URL("/api/gallary-page", baseUrl);
+
+    url.search = qs.stringify({
+        populate: {
+            gallaryItem: {
+                populate: {
+                    image: {
+                        fields: ["url", "alternativeText"],
+                    }
+                },
+            }
+        },
+    });
+
+    return await fetchData(url.href);
+}
+

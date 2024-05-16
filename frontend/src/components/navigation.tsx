@@ -49,12 +49,12 @@ export function Navigation() {
                 <div className="flex items-center gap-2 border-b border-foreground/25 bg-background/95 px-3 py-2 shadow-md supports-[backdrop-filter]:bg-background/60 supports-[backdrop-filter]:bg-clip-padding supports-[backdrop-filter]:backdrop-blur sm:justify-between sm:rounded-none sm:px-3">
                     <div className="container mx-auto flex max-w-6xl">
                         <div className="flex items-center justify-start">
-                            <div className="group aspect-square h-auto w-10 overflow-hidden rounded-full border border-black">
+                            <div className="group aspect-square h-auto w-10 overflow-hidden rounded-full">
                                 <Link href="/" aria-label="Go to Home">
                                     <Image
                                         width={40}
                                         height={40}
-                                        src="/vercel.svg"
+                                        src="/logo/logo.png"
                                         alt={defaultUser.name}
                                     />
                                 </Link>
@@ -69,7 +69,7 @@ export function Navigation() {
                             </nav>
                         </div>
                         <div className="order-2 flex w-full items-center gap-2 sm:ml-10 sm:order-3 sm:w-fit">
-                            <Button size="sm">Donate</Button>
+                            <Button>Donate</Button>
                         </div>
                     </div>
                 </div>

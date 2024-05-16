@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "gallary_pages",
+  "info": {
+    "singularName": "gallary-page",
+    "pluralName": "gallary-pages",
+    "displayName": "GallaryPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "gallaryItem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.image"
+    }
+  }
+}

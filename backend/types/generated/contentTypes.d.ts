@@ -850,6 +850,39 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   };
 }
 
+export interface ApiGallaryPageGallaryPage extends Schema.SingleType {
+  collectionName: 'gallary_pages';
+  info: {
+    singularName: 'gallary-page';
+    pluralName: 'gallary-pages';
+    displayName: 'GallaryPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    gallaryItem: Attribute.Component<'component.image', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallary-page.gallary-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gallary-page.gallary-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomePageHomePage extends Schema.SingleType {
   collectionName: 'home_pages';
   info: {
@@ -926,6 +959,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::blog.blog': ApiBlogBlog;
+      'api::gallary-page.gallary-page': ApiGallaryPageGallaryPage;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::tag.tag': ApiTagTag;
     }

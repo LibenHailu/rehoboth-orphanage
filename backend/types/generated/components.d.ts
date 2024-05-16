@@ -12,6 +12,18 @@ export interface ComponentBenefitItem extends Schema.Component {
   };
 }
 
+export interface ComponentImage extends Schema.Component {
+  collectionName: 'components_component_images';
+  info: {
+    displayName: 'ImageItem';
+    description: '';
+  };
+  attributes: {
+    caption: Attribute.Text;
+    image: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface LayoutBenefitsSection extends Schema.Component {
   collectionName: 'components_layout_benefits_sections';
   info: {
@@ -41,6 +53,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'component.benefit-item': ComponentBenefitItem;
+      'component.image': ComponentImage;
       'layout.benefits-section': LayoutBenefitsSection;
       'layout.hero-section': LayoutHeroSection;
     }
