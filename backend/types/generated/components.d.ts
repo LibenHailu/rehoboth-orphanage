@@ -16,11 +16,12 @@ export interface LayoutBenefitsSection extends Schema.Component {
   collectionName: 'components_layout_benefits_sections';
   info: {
     displayName: 'BenefitsSection';
+    description: '';
   };
   attributes: {
     heading: Attribute.String;
     subHeading: Attribute.Text;
-    BenefitItem: Attribute.Component<'component.benefit-item', true>;
+    benefit: Attribute.Component<'component.benefit-item', true>;
   };
 }
 

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_layout_benefits_sections",
   "info": {
-    "displayName": "BenefitsSection"
+    "displayName": "BenefitsSection",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,7 +12,7 @@
     "subHeading": {
       "type": "text"
     },
-    "BenefitItem": {
+    "benefit": {
       "displayName": "BenefitItem",
       "type": "component",
       "repeatable": true,
