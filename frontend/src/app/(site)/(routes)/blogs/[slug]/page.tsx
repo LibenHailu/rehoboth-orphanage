@@ -55,7 +55,7 @@ export default async function BlogPage({
                 <p className="mb-2 mt-0 text-xl text-muted-foreground">{post.description}</p>
             )}
             <hr className="my-4" />
-            <Image src={post.coverImage?.url} alt={post.coverImage?.alternativeText || `${post.title} cover image.`} width={1200} height={900} />
+            <Image src={post.coverImage?.url} alt={post.coverImage?.alternativeText || `${post.title} cover image.`} width="1200" height="800" />
             <BlocksRenderer content={post.content} />
             <hr className="my-4" />
             <div className="flex flex-row items-center justify-between">
