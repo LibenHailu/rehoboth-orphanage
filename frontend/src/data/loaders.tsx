@@ -116,3 +116,45 @@ export async function getGallaryPageData() {
     return await fetchData(url.href);
 }
 
+
+export async function getFeaturedBlogData() {
+
+    const url = new URL("/api/blogs", baseUrl);
+
+    const query = qs.stringify({
+        populate: {
+            coverImage: {
+                fields: ["url", "alternativeText"],
+            },
+            limit: 1,
+        },
+        filters:
+            { isFeatured: { $eq: true } },
+
+    });
+
+    url.search = query;
+    return fetchData(url.href);
+}
+
+export async function getLatestBlogData() {
+
+    const url = new URL("/api/blogs", baseUrl);
+
+    const query = qs.stringify({
+        sort: ['publishedAt:desc'],
+        populate: {
+            coverImage: {
+                fields: ["url", "alternativeText"],
+            },
+            limit: 1,
+        },
+        filters:
+            { isFeatured: { $eq: false } },
+
+    });
+
+    url.search = query;
+    return fetchData(url.href);
+}
+
