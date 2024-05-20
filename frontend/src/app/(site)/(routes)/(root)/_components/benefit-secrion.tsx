@@ -50,7 +50,7 @@ export function BenefitSection({
 }) {
     const { benefit } = data;
     return (
-        <div className="">
+        <div className="max-w-5xl mx-auto">
             <div className="flex-1">
                 <section className="container px-4 py-6 mx-auto md:px-6 lg:py-24">
                     <div className="grid gap-8 md:grid-cols-3">

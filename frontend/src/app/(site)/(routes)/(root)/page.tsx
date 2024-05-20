@@ -19,6 +19,7 @@ function blockRenderer(block: any) {
 
 
 export default async function Home() {
+    // TODO: make the requests concurrent, concurrent rendering
     const strapiData = await getHomePageData();
     const featuredBlog = await getFeaturedBlogData()
     const latestBlog = await getLatestBlogData()
@@ -34,8 +35,8 @@ export default async function Home() {
             {blocks.map((block: any) => blockRenderer(block))}
             {
                 featuredBlog.data[0] &&
-                <div className="my-4">
-                    <h2 className="m-4 text-3xl font-bold flex justify-center tracking-tight">Featured Blog</h2>
+                <div className="my-4 max-w-5xl mx-auto space-y-6">
+                    <h2 className="m-4 text-4xl font-bold flex justify-center tracking-tight">Featured Blog</h2>
                     <BlogItem {...featuredBlog.data[0]} imgRight={false} imgPath={featuredBlog.data[0]?.coverImage?.url} />
                 </div>
 
@@ -43,8 +44,8 @@ export default async function Home() {
 
             {
                 latestBlog.data[0] &&
-                <div className="my-4">
-                    <h2 className="m-4 text-3xl font-bold flex justify-center tracking-tight">Latest  Blog</h2>
+                <div className="my-4 max-w-5xl mx-auto space-y-6">
+                    <h2 className="m-4 text-4xl font-bold flex justify-center tracking-tight">Latest  Blog</h2>
                     <BlogItem {...latestBlog.data[0]} imgPath={latestBlog.data[0]?.coverImage?.url} />
                 </div>
 

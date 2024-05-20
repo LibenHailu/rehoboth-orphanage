@@ -6,6 +6,10 @@ import { socialProfiles } from "./social-data";
 export const defaultUser: UserType = {
     name: "Rehoboth Orphange",
     socialProfiles,
+    address: "Bole Sub-City, Addis Ababa, Ethiopia",
+    phone: "+2519090909",
+    email: "contact@rehobothorphanage.com",
+
 };
 
 const defaultTitle = `${defaultUser.name}`;

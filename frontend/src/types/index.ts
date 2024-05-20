@@ -27,6 +27,8 @@ export type UserType = {
     name: string;
     socialProfiles: SocialProfile[];
     email?: string;
+    phone?: string;
+    address?: string;
     location?: {
         city?: string;
     };
