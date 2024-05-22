@@ -8,7 +8,7 @@ const about: AboutNavItem[] = [
     },
     {
         title: "Gallery",
-        href: "/gallary",
+        href: "/gallery",
         description: "See photos of our activities, events, and joyful supported children.",
     },
 ];

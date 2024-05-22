@@ -19,8 +19,9 @@ export interface ComponentImage extends Schema.Component {
     description: '';
   };
   attributes: {
-    caption: Attribute.Text;
+    title: Attribute.String;
     image: Attribute.Media & Attribute.Required;
+    caption: Attribute.Text;
   };
 }
 

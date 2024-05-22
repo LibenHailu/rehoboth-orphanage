@@ -6,8 +6,8 @@
   },
   "options": {},
   "attributes": {
-    "caption": {
-      "type": "text"
+    "title": {
+      "type": "string"
     },
     "image": {
       "type": "media",
@@ -16,6 +16,9 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "caption": {
+      "type": "text"
     }
   }
 }
