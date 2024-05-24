@@ -1,6 +1,7 @@
 import qs from "qs";
 
 import { flattenAttributes, getStrapiURL } from "@/lib/utils";
+import siteMetadata from "@/lib/metadata";
 
 const baseUrl = getStrapiURL();
 
@@ -40,11 +41,10 @@ export async function getHomePageData() {
 }
 
 
-export async function getBlogsPageData() {
-
+export async function getBlogsPageData(queryString: string, currentPage: number) {
     const url = new URL("/api/blogs", baseUrl);
-
     url.search = qs.stringify({
+        sort: ["createdAt:desc"],
         populate: {
             coverImage: {
                 fields: ["url", "alternativeText"],
@@ -52,6 +52,16 @@ export async function getBlogsPageData() {
             tags: {
                 fields: ["name"],
             }
+        },
+        filters: {
+            $or: [
+                { title: { $containsi: queryString } },
+                { description: { $containsi: queryString } },
+            ],
+        },
+        pagination: {
+            pageSize: siteMetadata.postsPerPage,
+            page: currentPage,
         },
     });
 
@@ -81,6 +91,7 @@ export async function getBlogPageData(slug: string) {
 export async function getBlogsDataByTag(tag: string) {
     const url = new URL("/api/blogs", baseUrl);
     const query = qs.stringify({
+        sort: ["createdAt:desc"],
         filters:
             { tags: { name: { $eq: tag } } },
 
@@ -102,6 +113,7 @@ export async function getGallaryPageData() {
     const url = new URL("/api/gallary-page", baseUrl);
 
     url.search = qs.stringify({
+        sort: ["createdAt:desc"],
         populate: {
             gallaryItem: {
                 populate: {

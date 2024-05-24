@@ -1,19 +1,37 @@
 import { getBlogsPageData } from "@/data/loaders"
 import { BlogsApiResponse } from "@/types"
 import PostPreview from "./_components/post-preview"
+import { PaginationComponent } from "@/components/pagination";
+import { Search } from "../(root)/_components/search";
 
-export default async function BlogsPage() {
-    const data: BlogsApiResponse = await getBlogsPageData()
-    
+interface SearchParamsProps {
+    searchParams?: {
+        query?: string;
+        page?: string;
+    };
+}
+
+export default async function BlogsPage({
+    searchParams
+}: SearchParamsProps) {
+    // const data: BlogsApiResponse = await getBlogsPageData()
+    const query = searchParams?.query ?? "";
+    const currentPage = Number(searchParams?.page) || 1;
+
+    const { data, meta }: BlogsApiResponse = await getBlogsPageData(query, currentPage);
+    const pageCount = meta.pagination.pageCount;
+
     return <div className="container mb-4">
         <div className="prose mx-auto max-w-5xl dark:prose-invert prose-headings:font-heading prose-headings:font-bold prose-headings:leading-tight hover:prose-a:text-accent-foreground prose-a:prose-headings:no-underline">
-            <h1 className="mt-0">Latest Posts</h1>
+            <h1 className="mb-2 font-heading">Latest Posts</h1>
             <hr className="my-4" />
+            <Search />
             <div className="grid grid-flow-row gap-2">
-                {data?.data && data?.data.map((post) => (
+                {data && data.map((post) => (
                     <PostPreview post={post} key={post.id} />
                 ))}
             </div>
+            <PaginationComponent pageCount={pageCount} />
         </div>
     </div>
 }
