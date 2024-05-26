@@ -54,16 +54,16 @@ const Footer = () => {
                 <div className="space-y-2 col-span-5 sm:col-span-2 text-center sm:text-start">
                     <h5 className="text-xl font-bold">Contact Us</h5>
                     <ul className="space-y-2">
-                        <li className="flex flex-wrap items-center text-sm gap-x-2 justify-center sm:justify-start">
-                            <MapPin className="w-6 h-6 text-muted-foreground pt-2" />
+                        <li className="flex flex-wrap text-balance items-center text-sm gap-x-2 justify-center sm:justify-start">
+                            <MapPin className="w-6 h-6 text-muted-foreground pt-2 " />
                             {defaultUser?.address}
                         </li>
-                        <li className="flex flex-wrap items-center text-sm gap-x-2 justify-center sm:justify-start">
-                            <Phone className="w-6 h-6 text-muted-foreground pt-2" />
+                        <li className="flex flex-wrap text-balance items-center text-sm gap-x-2 justify-center sm:justify-start">
+                            <Phone className="w-6 h-6 text-muted-foreground pt-2 " />
                             {defaultUser?.phone}
                         </li>
-                        <li className="flex flex-wrap items-center text-sm gap-x-2 justify-center sm:justify-start">
-                            <Mail className="w-6 h-6 text-muted-foreground pt-2" />
+                        <li className="flex flex-wrap text-balance items-center text-sm gap-x-2 justify-center sm:justify-start">
+                            <Mail className="w-6 h-6 text-muted-foreground pt-2 " />
                             {defaultUser?.email}
                         </li>
                     </ul>

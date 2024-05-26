@@ -3,6 +3,7 @@ import { BlogsApiResponse } from "@/types"
 import PostPreview from "./_components/post-preview"
 import { PaginationComponent } from "@/components/pagination";
 import { Search } from "../(root)/_components/search";
+import Empty from "@/components/empty";
 
 interface SearchParamsProps {
     searchParams?: {
@@ -14,7 +15,7 @@ interface SearchParamsProps {
 export default async function BlogsPage({
     searchParams
 }: SearchParamsProps) {
-    // const data: BlogsApiResponse = await getBlogsPageData()
+
     const query = searchParams?.query ?? "";
     const currentPage = Number(searchParams?.page) || 1;
 
@@ -27,9 +28,9 @@ export default async function BlogsPage({
             <hr className="my-4" />
             <Search />
             <div className="grid grid-flow-row gap-2">
-                {data && data.map((post) => (
+                {data.length ? data.map((post) => (
                     <PostPreview post={post} key={post.id} />
-                ))}
+                )) : <Empty />}
             </div>
             <PaginationComponent pageCount={pageCount} />
         </div>

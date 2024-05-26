@@ -88,12 +88,28 @@ export async function getBlogPageData(slug: string) {
     return fetchData(url.href);
 }
 
-export async function getBlogsDataByTag(tag: string) {
+export async function getBlogsDataByTag(tag: string, queryString: string, currentPage: number) {
+    console.log(tag, queryString, currentPage)
     const url = new URL("/api/blogs", baseUrl);
     const query = qs.stringify({
         sort: ["createdAt:desc"],
         filters:
-            { tags: { name: { $eq: tag } } },
+        {
+            $or: [
+                { title: { $containsi: queryString }, tags: { name: { $eq: tag } }, },
+                { description: { $containsi: queryString }, tags: { name: { $eq: tag } }, },
+            ],
+            // tags: { name: { $eq: tag } },
+        },
+        populate: {
+            tags: {
+                fields: ["name"],
+            },
+        },
+        pagination: {
+            pageSize: siteMetadata.postsPerPage,
+            page: currentPage,
+        },
 
     });
 

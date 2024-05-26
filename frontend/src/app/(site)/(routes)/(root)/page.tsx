@@ -31,7 +31,7 @@ export default async function Home() {
     }
 
     return (
-        <div className="container">
+        <div className="container space-y-10">
             {blocks.map((block: any) => blockRenderer(block))}
             {
                 featuredBlog.data[0] &&

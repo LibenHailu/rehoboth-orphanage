@@ -64,7 +64,7 @@ export function PaginationComponent({ pageCount }: PaginationProps) {
                 </PaginationItem>
                 <PaginationItem>
                     <span className="p-2 font-semibold text-sm">
-                        Page {currentPage}/{pageCount}
+                        Page {currentPage} of {pageCount}
                     </span>
                 </PaginationItem>
                 <PaginationItem>
@@ -72,7 +72,7 @@ export function PaginationComponent({ pageCount }: PaginationProps) {
                         direction="right"
                         href={createPageURL(currentPage + 1)}
                         isDisabled={currentPage >= pageCount}
-                />
+                    />
                 </PaginationItem>
             </PaginationContent>
         </Pagination>
