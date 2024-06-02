@@ -1,9 +1,9 @@
 "use client"
-import { GalleryItem } from "./gallery-item"
-import { GalleryType, GalleryItemType, ImageType } from "../_types"
+import { X } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image"
-import { Database, X } from "lucide-react";
+import { GalleryItemType, GalleryType } from "../_types";
+import { GalleryItem } from "./gallery-item";
 
 type GalleryListProps = {
     data: GalleryType
