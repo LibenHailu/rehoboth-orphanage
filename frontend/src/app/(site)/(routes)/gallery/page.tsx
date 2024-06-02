@@ -1,8 +1,5 @@
 import { getGallaryPageData } from "@/data/loaders";
-import { GalleryItem } from "./_components/gallery-item";
-import { Gallery } from "./_types";
 import { GalleryList } from "./_components/gallery-list";
-import { PaginationComponent } from "@/components/pagination";
 
 interface SearchParamsProps {
     searchParams?: {
