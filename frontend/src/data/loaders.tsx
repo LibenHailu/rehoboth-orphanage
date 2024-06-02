@@ -89,7 +89,6 @@ export async function getBlogPageData(slug: string) {
 }
 
 export async function getBlogsDataByTag(tag: string, queryString: string, currentPage: number) {
-    console.log(tag, queryString, currentPage)
     const url = new URL("/api/blogs", baseUrl);
     const query = qs.stringify({
         sort: ["createdAt:desc"],
@@ -134,7 +133,7 @@ export async function getGallaryPageData() {
             gallaryItem: {
                 populate: {
                     image: {
-                        fields: ["url", "alternativeText"],
+                        fields: ["url", "alternativeText", "width", "height"],
                     }
                 },
             }
