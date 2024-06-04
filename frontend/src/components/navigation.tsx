@@ -68,8 +68,8 @@ export function Navigation() {
                                 <MobileNav />
                             </nav>
                         </div>
-                        <div className="order-2 flex w-full items-center gap-2 sm:ml-10 sm:order-3 sm:w-fit">
-                            <Button>Donate</Button>
+                        <div className="order-2 flex w-full items-center gap-2 mx-2 sm:ml-10 sm:order-3 sm:w-fit justify-end">
+                            <Button size="sm">Donate</Button>
                         </div>
                     </div>
                 </div>
