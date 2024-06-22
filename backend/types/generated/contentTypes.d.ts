@@ -916,6 +916,77 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
 }
 
+export interface ApiPricePrice extends Schema.CollectionType {
+  collectionName: 'prices';
+  info: {
+    singularName: 'price';
+    pluralName: 'prices';
+    displayName: 'Price';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    amount: Attribute.BigInteger;
+    currency: Attribute.String;
+    interval: Attribute.Enumeration<['month', 'year']>;
+    interval_count: Attribute.Integer;
+    price_id: Attribute.String & Attribute.Required & Attribute.Unique;
+    product_id: Attribute.String & Attribute.Required;
+    type: Attribute.Enumeration<['one_time', 'recurring']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::price.price',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::price.price',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'Product';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.String;
+    image: Attribute.String;
+    product_id: Attribute.String & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -961,6 +1032,8 @@ declare module '@strapi/types' {
       'api::blog.blog': ApiBlogBlog;
       'api::gallary-page.gallary-page': ApiGallaryPageGallaryPage;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::price.price': ApiPricePrice;
+      'api::product.product': ApiProductProduct;
       'api::tag.tag': ApiTagTag;
     }
   }

@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prices",
+  "info": {
+    "singularName": "price",
+    "pluralName": "prices",
+    "displayName": "Price",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "biginteger"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "interval": {
+      "type": "enumeration",
+      "enum": [
+        "month",
+        "year"
+      ]
+    },
+    "interval_count": {
+      "type": "integer"
+    },
+    "price_id": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "product_id": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "one_time",
+        "recurring"
+      ]
+    }
+  }
+}
