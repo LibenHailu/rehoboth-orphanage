@@ -39,8 +39,10 @@ const Footer = () => {
                         Get involved in transforming the lives of orphans through care and education!
                     </p>
                     <Button
-                    >
-                        Support Us
+                        asChild>
+                        <Link href="/donate">
+                            Support Us
+                        </Link>
                     </Button>
                 </div>
                 <div className="space-y-2 col-span-5 sm:col-span-1 text-center sm:text-start">
@@ -55,15 +57,15 @@ const Footer = () => {
                     <h5 className="text-xl font-bold">Contact Us</h5>
                     <ul className="space-y-2">
                         <li className="flex flex-wrap text-balance items-center text-sm gap-x-2 justify-center sm:justify-start">
-                            <MapPin className="w-6 h-6 text-muted-foreground pt-2 " />
+                            <MapPin strokeWidth={3} className="w-4 h-4 text-muted-foreground" />
                             {defaultUser?.address}
                         </li>
                         <li className="flex flex-wrap text-balance items-center text-sm gap-x-2 justify-center sm:justify-start">
-                            <Phone className="w-6 h-6 text-muted-foreground pt-2 " />
+                            <Phone strokeWidth={3} className="w-4 h-4 text-muted-foreground" />
                             {defaultUser?.phone}
                         </li>
                         <li className="flex flex-wrap text-balance items-center text-sm gap-x-2 justify-center sm:justify-start">
-                            <Mail className="w-6 h-6 text-muted-foreground pt-2 " />
+                            <Mail strokeWidth={3} className="w-4 h-4 text-muted-foreground" />
                             {defaultUser?.email}
                         </li>
                     </ul>

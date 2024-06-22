@@ -165,7 +165,6 @@ export async function getFeaturedBlogData() {
 }
 
 export async function getLatestBlogData() {
-
     const url = new URL("/api/blogs", baseUrl);
 
     const query = qs.stringify({
@@ -185,3 +184,45 @@ export async function getLatestBlogData() {
     return fetchData(url.href);
 }
 
+export async function getProductWithPriceData() {
+    const url = new URL("/api/products", baseUrl);
+
+    const query = qs.stringify({});
+    url.search = query;
+
+    const products = await fetchData(url.href);
+
+    if (!products || products.length === 0) {
+        // console.error("No products found");
+        return [];
+    }
+
+    const result = await mergeProductWithPrice(products);
+    return result;
+}
+
+async function mergeProductWithPrice(products) {
+    let res = [];
+    for (let i = 0; i < products.data.length; i++) {
+        // console.log(`Processing product ${i}:`, products.data[i].product_id);
+
+        const url = new URL("/api/prices", baseUrl);
+
+        const query = qs.stringify({
+            filters: {
+                product_id: { $eq: products.data[i].product_id }
+            }
+        });
+
+        url.search = query;
+        const priceResponse = await fetchData(url.href);
+
+        if (priceResponse && priceResponse.data && priceResponse.data.length > 0) {
+            res.push({ product: { ...products?.data[i] }, price: priceResponse.data[0] });
+        } else {
+            // console.warn(`No price found for product ID: ${products[i].product_id}`);
+        }
+    }
+
+    return res;
+}
