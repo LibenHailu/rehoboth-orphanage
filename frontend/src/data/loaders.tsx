@@ -10,7 +10,7 @@ async function fetchData(url: string) {
 
     try {
         // TODO: remove no-store cache for better performance
-        const response = await fetch(url, { cache: "no-store" });
+        const response = await fetch(url, { next: { revalidate: 3600 } });
         const data = await response.json();
         return flattenAttributes(data);
     } catch (error) {
