@@ -72,9 +72,10 @@ module.exports = ({ env }) => {
         //     true
         //   ),
         // },
-        ssl: {
-          rejectUnauthorized: env.bool("DATABASE_SSL_SELF", false),
-        },
+        // ssl: {
+        //   rejectUnauthorized: env.bool("DATABASE_SSL_SELF", false),
+        // },
+        ssl: false,
         schema: env("DATABASE_SCHEMA", "public"),
       },
       pool: {
