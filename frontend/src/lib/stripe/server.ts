@@ -34,8 +34,12 @@ export async function checkoutWithStripe(
 
         const line_items = price.id ? [
             {
-                price: price.id,
-                quantity: 1
+                // price: price.id,
+                quantity: 1,
+                price_data: {
+                    currency: price.currency,
+                    unit_amount: price.amount
+                },
             }
         ] : [
             {
