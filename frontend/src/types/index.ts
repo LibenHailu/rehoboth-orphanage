@@ -87,3 +87,34 @@ export type BlogApiResponse = {
     data: Post[];
     meta: Meta;
 };
+
+
+export interface Product {
+    id: number;
+    name: string;
+    description: string;
+    image: string | null;
+    product_id: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+}
+
+export interface Price {
+    id: number;
+    amount: string;
+    currency: string;
+    interval: string;
+    interval_count: number;
+    price_id: string;
+    product_id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+}
+
+export interface ProductWithPrice {
+    product: Product;
+    price: Price;
+}

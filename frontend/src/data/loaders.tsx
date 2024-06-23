@@ -2,6 +2,7 @@ import qs from "qs";
 
 import { flattenAttributes, getStrapiURL } from "@/lib/utils";
 import siteMetadata from "@/lib/metadata";
+import { Product } from "@/types";
 
 const baseUrl = getStrapiURL();
 
@@ -201,7 +202,7 @@ export async function getProductWithPriceData() {
     return result;
 }
 
-async function mergeProductWithPrice(products) {
+async function mergeProductWithPrice(products: { data: Product[] }) {
     let res = [];
     for (let i = 0; i < products.data.length; i++) {
         // console.log(`Processing product ${i}:`, products.data[i].product_id);

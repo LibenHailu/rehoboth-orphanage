@@ -5,14 +5,15 @@ import { TabsList, TabsTrigger, Tabs } from "@/components/ui/tabs";
 import { getStripe } from "@/lib/stripe/client";
 import { checkoutWithStripe } from "@/lib/stripe/server";
 import { cn } from "@/lib/utils";
+import { Price, ProductWithPrice } from "@/types";
 import { getErrorRedirect } from "@/utils/helpers";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function Donation(data) {
+export default function Donation({ data }: { data: ProductWithPrice[] }) {
     const intervals = Array.from(
         new Set(
-            data?.data?.flatMap((product) =>
+            data?.flatMap((product) =>
                 product?.price?.interval)
         )
     );
@@ -23,11 +24,11 @@ export default function Donation(data) {
     const [priceIdLoading, setPriceIdLoading] = useState<string>();
     const currentPath = usePathname();
 
-    const products = data?.data?.filter(product =>
+    const products = data?.filter(product =>
         product?.price.interval === billingInterval
     )
 
-    const handleStripeCheckout = async (price) => {
+    const handleStripeCheckout = async (price: Price) => {
 
         if (price.price_id) {
             setPriceIdLoading(price.price_id);
@@ -88,10 +89,10 @@ export default function Donation(data) {
                     style: 'currency',
                     currency: product.price.currency!,
                     minimumFractionDigits: 0
-                }).format((product.price?.amount || 0) / 100);
+                }).format(Number(product.price?.amount) || 0 / 100);
                 return (
                     <div
-                        key={product.id}
+                        key={product.product.id}
                         className={cn(
                             'flex flex-col rounded-lg shadow-sm divide-y border',
                             'flex-1', // This makes the flex item grow to fill the space
