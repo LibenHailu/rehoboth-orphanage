@@ -15,7 +15,6 @@ export default async function DonatePage() {
         <div className="container max-w-5xl mx-auto mb-4">
             <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
                 <div className="sm:flex sm:flex-col sm:align-center">
-                    {JSON.stringify(data)}
                     <h1 className="text-4xl font-extrabold sm:text-center sm:text-6xl">
                         Donation Plans
                     </h1>
