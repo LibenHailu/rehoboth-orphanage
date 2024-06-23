@@ -65,20 +65,20 @@ export default function Donation({ data }: { data: ProductWithPrice[] }) {
     return <>
         <div className="mt-6 sm:mt-8">
             <Tabs defaultValue="month">
-                <TabsList className="grid w-full grid-cols-3">
+                <TabsList className="grid w-full grid-cols-2">
                     {intervals.includes('month') && (<TabsTrigger value="month"
                         onClick={() => setBillingInterval('month')}
-                    >Monthly Subscription</TabsTrigger>)}
+                    >Monthly</TabsTrigger>)}
 
 
                     {intervals.includes('year') && (<TabsTrigger
                         onClick={() => setBillingInterval('year')}
                         value="year"
-                    >Annual Subscription</TabsTrigger>)}
+                    >Annually</TabsTrigger>)}
 
-                    <TabsTrigger
+                    {/* <TabsTrigger
                         value="one"
-                    >One Time</TabsTrigger>
+                    >One Time</TabsTrigger> */}
                 </TabsList>
             </Tabs>
 
