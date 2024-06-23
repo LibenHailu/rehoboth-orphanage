@@ -6,6 +6,8 @@ import {
     getURL,
     getErrorRedirect,
 } from '@/utils/helpers';
+import { Price } from '@/types';
+import { LineItem } from '@stripe/stripe-js';
 
 type CheckoutResponse = {
     errorRedirect?: string;
@@ -13,8 +15,8 @@ type CheckoutResponse = {
 };
 
 export async function checkoutWithStripe(
-    price,
-    redirectPath = '/'
+    price: Price,
+    redirectPath: string = '/'
 ): Promise<CheckoutResponse> {
     try {
 
@@ -32,7 +34,7 @@ export async function checkoutWithStripe(
 
         const line_items = price.id ? [
             {
-                price: price.id,
+                price: price.id as unknown,
                 quantity: 1
             }
         ] : [
@@ -43,7 +45,7 @@ export async function checkoutWithStripe(
                     product_data: {
                         name: "Custom amount donation",
                     },
-                    unit_amount: price.unit_amount
+                    unit_amount: price.amount
                 },
             },
         ]
