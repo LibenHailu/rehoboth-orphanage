@@ -34,12 +34,8 @@ export async function checkoutWithStripe(
 
         const line_items = price.id ? [
             {
-                // price: price.id,
+                price: price.id,
                 quantity: 1,
-                price_data: {
-                    currency: price.currency,
-                    unit_amount: price.amount
-                },
             }
         ] : [
             {
@@ -49,7 +45,7 @@ export async function checkoutWithStripe(
                     product_data: {
                         name: "Custom amount donation",
                     },
-                    unit_amount: price.amount
+                    unit_amount: Number(price.amount)
                 },
             },
         ]
