@@ -101,7 +101,7 @@ export interface Product {
 }
 
 export interface Price {
-    id: number;
+    id: string;
     amount: string;
     currency: string;
     interval: string;
